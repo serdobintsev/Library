@@ -1,0 +1,11 @@
+.wrapp {
+	clear: both;
+	float: none;
+	margin: 10px;
+}
+
+.wrapp .item {
+	width: 300px;
+	float: left;
+	margin: 10px;
+}

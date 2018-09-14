@@ -1,0 +1,20 @@
+#задаем кодировку сайта
+AddDefaultCharset UTF-8
+ 
+# Следовать за символическими ссылками или нет(симлинки)
+# Options +SymLinksIfOwnerMatch
+Options +FollowSymLinks
+ 
+# Запрет выдачи листинга пустого каталога
+Options -Indexes
+ 
+# По умолчанию файлы
+DirectoryIndex index.php 
+ 
+# Включаем механизма преобразования
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|robots\.txt|assets|sitemap\.xml)
+RewriteCond %{REQUEST_URI} !\.(css¦js¦jpg¦gif)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php/$1 [L,QSA]
